@@ -43,15 +43,15 @@ stock float map(float x, float in_min, float in_max, float out_min, float out_ma
 
 void Event_PlayerLeftSafeArea(Event eEvent, const char[] szName, bool bDontBroadcast) {  // Игрок вышел из saferoom
 	if (!isVersus()) { return; }
-	medkitTimer = null;
 	delete medkitTimer;
+	medkitTimer = null;
 	medkitTimer = CreateTimer(20.0, Timer_DeleteAllMedkits, _, TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
 }
 
 public void Event_RoundEnd(Event event, const char[] name, bool dontBroadcast)
 {
-	medkitTimer = null;
 	delete medkitTimer;
+	medkitTimer = null;
 }
 
 public Action Timer_DeleteAllMedkits(Handle timer)
@@ -65,7 +65,7 @@ public Action Timer_DeleteAllMedkits(Handle timer)
 			{
 				GetEntityClassname(i, eName, sizeof(eName));
 				if (strcmp(eName, "weapon_first_aid_kit_spawn") == 0) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i); // Удаляем все аптеки
+					AcceptEntityInput(i, "Kill"); // Удаляем все аптеки
 				}
 			}
 		}
@@ -101,50 +101,50 @@ void clearEvent()
 			if (strcmp(eName, "weapon_pain_pills_spawn") == 0) {
 				pill++;
 				if (pill > 2) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_adrenaline_spawn") == 0) {
 				adr++;
 				if (adr > 2) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_defibrillator_spawn") == 0) {
 				defib++;
 				if (defib > 1) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_vomitjar_spawn") == 0) {
 				vomit++;
 				if (vomit > 2) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_molotov_spawn") == 0) {
 				molot++;
 				if (molot > 1) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_pipe_bomb_spawn") == 0) {
 				pipe++;
 				if (pipe > 4) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			
 			if (strcmp(eName, "weapon_upgradepack_incendiary_spawn") == 0) {
 				ince++;
 				if (ince > 1) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 			if (strcmp(eName, "weapon_upgradepack_explosive_spawn") == 0) {
 				expl++;
 				if (expl > 1) {
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 				}
 			}
 		}

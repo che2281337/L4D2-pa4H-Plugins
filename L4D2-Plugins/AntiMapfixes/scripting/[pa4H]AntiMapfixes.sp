@@ -94,7 +94,7 @@ void killEntity(float loc0, float loc1, float loc2)
 				if (GetVectorDistance(NearestObject, Location, false) < 50.0)
 				{
 					//PrintToChatAll("VectorDistance %f Location: %f %f %f", GetVectorDistance(NearestObject, Location, false), Location[0], Location[1], Location[2]);
-					AcceptEntityInput(i, "Kill"); RemoveEdict(i);
+					AcceptEntityInput(i, "Kill");
 					
 				}
 			}
